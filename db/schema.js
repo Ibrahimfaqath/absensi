@@ -10,3 +10,13 @@ export const users = pgTable("users", {
     is_active: boolean("is_active").default(true),
 });
 
+// Tabel attendances
+export const attendances = pgTable("attendances", {
+    id: serial("id").primaryKey(),
+    user_id: integer("user_id")
+      .notNull()
+      .references(() => users.id),
+    check_in: timestamp("check_in").defaultNow(),
+    check_out: timestamp("check_out"),
+    note: text("note"),
+});
