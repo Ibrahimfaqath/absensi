@@ -4,14 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi</title>
+    <style>
+        /* Mengatur dasar halaman dengan tema hitam/gelap teknologis */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Judul halaman dengan efek glow warna biru cyan */
+        h2 {
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Gaya input field agar konsisten dengan tema dark mode */
+        input {
+            width: 260px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00d2ff;
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+            background-color: #1f2937;
+        }
+
+        /* Warna placeholder yang redup */
+        input::placeholder {
+            color: #64748b;
+        }
+
+        /* Kontainer untuk membungkus tombol agar rapi berdampingan */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        /* Desain dasar tombol teknologi */
+        button {
+            width: 137px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+        }
+
+        /* Tombol Check In (Gradient Navy - Blue) */
+        button:nth-of-type(1) {
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        button:nth-of-type(1):hover {
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            box-shadow: 0 4px 16px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Tombol Check Out (Warna Slate Gelap sebagai pembeda yang elegan) */
+        button:nth-of-type(2) {
+            background: linear-gradient(135deg, #334155, #475569);
+            box-shadow: 0 4px 12px rgba(71, 85, 105, 0.3);
+        }
+
+        button:nth-of-type(2):hover {
+            background: linear-gradient(135deg, #475569, #64748b);
+            box-shadow: 0 4px 16px rgba(100, 116, 139, 0.5);
+        }
+
+        /* Efek klik pada tombol */
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* Teks tempat menampilkan pesan hasil respons */
+        #result {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #94a3b8;
+            text-align: center;
+            max-width: 280px;
+        }
+    </style>
 </head>
 <body>
     <h2>Absensi</h2>
 
     <input id="identifier" placeholder="ID atau Email"><br><br>
 
-    <button onclick="checkIn()">Check In</button>
-    <button onclick="checkOut()">Check Out</button>
+    <div class="button-group">
+        <button onclick="checkIn()">Check In</button>
+        <button onclick="checkOut()">Check Out</button>
+    </div>
 
     <p id="result"></p>
 
